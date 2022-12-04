@@ -9,9 +9,10 @@ import "./ProfileDisplay.scss";
 function ProfileDisplay() {
   const { userData, octocatDataLoaded } = useContext(UserDataProvider);
 
-  return (
+  if (octocatDataLoaded) 
+  return(
     <>
-      <main className="app__profileDisplay-container">
+        <main className="app__profileDisplay-container">
         {/* HEADER SECTION */}
         <section className="app__profileDisplay-header">
           {octocatDataLoaded ? (
@@ -24,7 +25,7 @@ function ProfileDisplay() {
           ) : (
             <p>Joined 25 Jan 2011</p>
           )}
-          {userData.bio ? (
+          {octocatDataLoaded.bio ? (
             <p className="profile-bio">{userData.bio}</p>
           ) : (
             <p>This profile has no bio.</p>
@@ -47,7 +48,7 @@ function ProfileDisplay() {
           </div>
         </section>
 
-        {/* USER INFO SECTION */}
+        USER INFO SECTION
         <section className="app__profileDisplay-location">
           <div className="app__profileDisplay-location-card">
             <img src={images.locationIcon} alt="Location of user" />
@@ -84,7 +85,13 @@ function ProfileDisplay() {
         </section>
       </main>
     </>
+  ); 
+  else return (
+    <>
+      <h1>Loading.....</h1>
+    </>
   );
+
 }
 
 export default ProfileDisplay;

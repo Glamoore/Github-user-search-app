@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { images } from "../../constants";
 
-function SearchBar() {
+import SearchTermContext from '../../Context/SearchTermContext';
 
+function SearchBar() {
+  const { searchTerm, searchTermUpdated } = useContext(SearchTermContext);
 
     return (
         <>
@@ -20,7 +22,7 @@ function SearchBar() {
               placeholder="Search GitHub username"
               name="userInput"
               id="userInput"
-            //   onChange={searchTermUpdated}
+              onChange={searchTermUpdated}
             />
             <button type="button" 
             // onClick={NewSearchTerm} 
