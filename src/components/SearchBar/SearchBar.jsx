@@ -3,9 +3,11 @@ import React, { useContext } from 'react';
 import { images } from "../../constants";
 
 import SearchTermContext from '../../Context/SearchTermContext';
+import UserDataProvider from "../../Context/UserDataContext";
 
 function SearchBar() {
-  const { searchTerm, searchTermUpdated } = useContext(SearchTermContext);
+  const { searchTermUpdated } = useContext(SearchTermContext);
+  const { NewSearchTerm } = useContext(UserDataProvider);
 
     return (
         <>
@@ -25,7 +27,7 @@ function SearchBar() {
               onChange={searchTermUpdated}
             />
             <button type="button" 
-            // onClick={NewSearchTerm} 
+            onClick={NewSearchTerm} 
             >
               Search
             </button>
