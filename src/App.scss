@@ -1,4 +1,4 @@
-/.sr-only {
+.sr-only {
     border: 0;
     clip: rect(0 0 0 0);
     clip-path: polygon(0px 0px, 0px 0px, 0px 0px);
@@ -33,3 +33,13 @@
       scroll-behavior: auto !important;
     }
   }
+
+
+  .dark {
+    background-color: #333;
+    color: #fff;
+    }
+    .light {
+    background-color: #fff;
+    color: #333;
+    }

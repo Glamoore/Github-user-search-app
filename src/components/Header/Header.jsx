@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import { images } from "../../constants";
 import "./Header.scss";
 
+import ThemeContext from "../../Context/ThemeContext";
+
 const Header = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
     <>
       <header>
         <h1>devfinder</h1>
-        <p>DARK</p>
+        <button onClick={toggleTheme}>{theme}</button>
         <div className="app__headerStyle-symbol">
           <img
             src={images.moonIcon}
