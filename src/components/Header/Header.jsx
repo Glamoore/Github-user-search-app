@@ -6,18 +6,25 @@ import "./Header.scss";
 import ThemeContext from "../../Context/ThemeContext";
 
 const Header = () => {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { toggleTheme, themeSwitch } = useContext(ThemeContext);
 
   return (
     <>
       <header>
         <h1>devfinder</h1>
-        <button onClick={toggleTheme}>{theme}</button>
+        <button onClick={toggleTheme}>{themeSwitch}</button>
         <div className="app__headerStyle-symbol">
-          <img
-            src={images.moonIcon}
-            alt="Symbol representing the current selected user theme for the application"
-          />
+          {themeSwitch === "dark" ? (
+            <img
+              src={images.moonIcon}
+              alt="Symbol representing the current selected user theme for the application"
+            />
+          ) : (
+            <img
+              src={images.sunIcon}
+              alt="Symbol representing the current selected user theme for the application"
+            />
+          )}
         </div>
       </header>
     </>
