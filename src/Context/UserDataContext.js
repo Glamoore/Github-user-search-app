@@ -8,6 +8,7 @@ const UserDataContext = createContext();
 export function UserDataProvider({ children }) {
   const [userData, setUserData] = useState();
   const [octocatDataLoaded, setOctoDataIsLoading] = useState();
+  const [userNotFound, setUserNotFound] = useState();
 
   const { searchTerm } = useContext(SearchTermContext);
 
@@ -36,12 +37,14 @@ export function UserDataProvider({ children }) {
         console.log(res.data);
       })
       .catch((err) => {
+        setUserNotFound("No results");
         console.log(err);
+        console.log(userNotFound);
       });
   };
 
   return (
-    <UserDataContext.Provider value={{ userData, octocatDataLoaded, NewSearchTerm }}>
+    <UserDataContext.Provider value={{ userData, octocatDataLoaded, userNotFound, NewSearchTerm }}>
       {children}
     </UserDataContext.Provider>
   );
